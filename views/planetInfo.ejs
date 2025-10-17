@@ -8,30 +8,38 @@
 <body style="text-align: center;">
     <h1 class="text-center bg-primary p-5 text-white m-0 ">The Solar System</h1>
     <%- include("partials/navbar.ejs") %>
-    <h2><%= planet_name %></h2>
-    <%= planetInfo.description %>
+    <h1><%= planet_name %></h1>
+    <p><%= planetInfo.description %> </p>
     <br><br>
     <h2>Fun Facts!</h2>
     <br>
-    <table>
+    <table class="table table-striped align-middle vertical-kv">
         <tr>
             <th>Planet Name</th>
-            <th>Distance From Sun (in million km)</th>
-            <th>Year Length (in Earth days)</th>
-            <th>Radius (in km)</th>
-            <th>One Earth Day (in hours)</th>
-            <th>Number of Moons</th>
+            <td><%= planet_name %></td>
         </tr>
         <tr>
-            <td><%= planetInfo.name %></td>
+            <th>Distance From Sun (in million km)</th>
             <td><%= planetInfo.distanceFromSun %></td>
+        </tr>
+        <tr>
+            <th>Year Length (in Earth days)</th>
             <td><%= planetInfo.yearLength %></td>
+        </tr>
+        <tr>
+            <th>Radius (in km)</th>
             <td><%= planetInfo.radius %></td>
+        </tr>
+        <tr>
+            <th>One Earth Day (in hours)</th>
             <td><%= planetInfo.oneEarthDay %></td>
+        </tr>
+        <tr>
+            <th>Number of Moons</th>
             <td><%= planetInfo.moons %></td>
         </tr>
     </table>
-        <br>
+    <br>
     <img src="<%=planetInfo.image %>" width="300">
 </body>
 
