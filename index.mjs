@@ -9,12 +9,16 @@ app.get('/', async (req, res) => {
     let pixResponse = await fetch('https://pixabay.com/api/?key=52800745-f52e8441750acdaa430f09481&q=solar+system+space&orientation=horizontal');
     let pixData = await pixResponse.json();
     let randomURL = pixData.hits[Math.floor(Math.random() * pixData.hits.length)].largeImageURL;
-    console.log(pixData);
-    console.log(randomURL);
+    // console.log(pixData);
+    // console.log(randomURL);
     
     res.render('home.ejs', {randomURL});
 //    res.send('Hello Express app!')
 });
+
+app.get('/nasa', (req, res) => {
+    res.render('nasa-pod.ejs');
+}); 
 
 app.listen(3000, () => {
    console.log('server started');
