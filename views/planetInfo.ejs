@@ -8,39 +8,56 @@
 <body style="text-align: center;">
     <h1 class="text-center bg-primary p-5 text-white m-0 ">The Solar System</h1>
     <%- include("partials/navbar.ejs") %>
-    <h1><%= planet_name %></h1>
-    <p><%= planetInfo.description %> </p>
-    <br><br>
-    <h2>Fun Facts!</h2>
-    <br>
-    <table class="table table-striped align-middle vertical-kv">
-        <tr>
-            <th>Planet Name</th>
-            <td><%= planet_name %></td>
-        </tr>
-        <tr>
-            <th>Distance From Sun (in million km)</th>
-            <td><%= planetInfo.distanceFromSun %></td>
-        </tr>
-        <tr>
-            <th>Year Length (in Earth days)</th>
-            <td><%= planetInfo.yearLength %></td>
-        </tr>
-        <tr>
-            <th>Radius (in km)</th>
-            <td><%= planetInfo.radius %></td>
-        </tr>
-        <tr>
-            <th>One Earth Day (in hours)</th>
-            <td><%= planetInfo.oneEarthDay %></td>
-        </tr>
-        <tr>
-            <th>Number of Moons</th>
-            <td><%= planetInfo.moons %></td>
-        </tr>
-    </table>
-    <br>
-    <img src="<%=planetInfo.image %>" width="300">
+    <div class="container my-4">
+        <div class="row">
+            <!-- Left Column: Text Content and Facts Table -->
+            <div class="col-lg-6 col-md-12 mb-4">
+                <h2 class="display-5 fw-bold text-info mb-3"><%= planet_name %></h2>
+                <p class="lead text-secondary"><%= planetInfo.description %></p>
+                <hr class="my-4">
+                <h3 class="text-success mb-3"><i class="bi bi-stars"></i> Fun Facts!</h3>
+                
+                <!-- Facts Table -->
+                <div class="card shadow">
+                    <div class="card-header bg-info text-white text-center fs-5">
+                        <i class="bi bi-globe"></i> <%= planet_name %> Facts
+                    </div>
+                    <table class="table table-bordered mb-0 align-middle">
+                        <tbody>
+                            <tr>
+                                <th scope="row" class="bg-light">Distance From Sun</th>
+                                <td><%= planetInfo.distanceFromSun %> million km</td>
+                            </tr>
+                            <tr>
+                                <th scope="row" class="bg-light">Year Length</th>
+                                <td><%= planetInfo.yearLength %> Earth days</td>
+                            </tr>
+                            <tr>
+                                <th scope="row" class="bg-light">Radius</th>
+                                <td><%= planetInfo.radius %> km</td>
+                            </tr>
+                            <tr>
+                                <th scope="row" class="bg-light">One Earth Day</th>
+                                <td><%= planetInfo.oneEarthDay %> hours</td>
+                            </tr>
+                            <tr>
+                                <th scope="row" class="bg-light">Number of Moons</th>
+                                <td><%= planetInfo.moons %></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            
+            <!-- Right Column: Planet Image -->
+            <div class="col-lg-6 col-md-12 mb-4 d-flex align-items-center justify-content-center">
+                <div class="text-center">
+                    <img src="<%= planetInfo.image %>" class="img-fluid rounded shadow" style="max-width: 400px; width: 100%;" alt="<%= planet_name %>">
+                    <p class="text-muted mt-2 small">Image of <%= planet_name %></p>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 
 <%- include("partials/footer.ejs") %>
